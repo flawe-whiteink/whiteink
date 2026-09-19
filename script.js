@@ -228,7 +228,7 @@
 
   /* ---------------- Showcase tabs (auto-rotate, click to pick) ---------------- */
   const tabs = $$(".tab"), panes = $$(".pane"), copies = $$(".copy");
-  const titles = { novel: "The Last Lighthouse — Novel", script: "Monsoon Nights — Screenplay", song: "Salt & Static — Song", film: "Monsoon Nights — Production" };
+  const titles = { novel: "The Last Lighthouse — Novel", script: "Monsoon Nights — Screenplay", song: "Salt & Static — Song", reel: "My Notebook — Content Plan", film: "Monsoon Nights — Production" };
   const bar = $(".tab-progress");
   const DUR = 7000;
   let cur = 0, timer, hovering = false;
@@ -257,6 +257,95 @@
     stageEl.addEventListener("pointerenter", () => (hovering = true));
     stageEl.addEventListener("pointerleave", () => (hovering = false));
     new IntersectionObserver((en) => { if (en[0].isIntersecting) restart(); else clearTimeout(timer); }, { threshold: 0.3 }).observe(stageEl);
+  }
+
+  /* ---------------- Creators: live pipeline board ---------------- */
+  const board = $("#board");
+  if (board) {
+    const cards = [
+      { t: "Why I write at night", tag: "Instagram Reel · 30s", stage: 2 },
+      { t: "3 hooks that never fail", tag: "YouTube Short · 45s", stage: 0 },
+      { t: "Desk tour, cozy edition", tag: "TikTok · 20s", stage: 3 },
+      { t: "Behind the book cover", tag: "Instagram Reel · 60s", stage: 1 },
+      { t: "Draft one in 60 seconds", tag: "YouTube Short · 60s", stage: 4 },
+    ];
+    let turn = 0, hot = -1;
+    const draw = () => {
+      $$(".bcol-body", board).forEach((b) => (b.textContent = ""));
+      cards.forEach((c, i) => {
+        const el = document.createElement("div");
+        el.className = "vcard" + (i === hot ? " hot" : "");
+        el.style.setProperty("--p", (c.stage / 5) * 100 + "%");
+        el.innerHTML = "<b></b><small></small><u></u>";
+        $("b", el).textContent = c.t;
+        $("small", el).textContent = c.tag;
+        $$(".bcol-body", board)[c.stage].appendChild(el);
+      });
+    };
+    draw();
+    if (!reduced) {
+      setInterval(() => {
+        const c = cards[turn % cards.length];
+        c.stage = c.stage >= 5 ? 0 : c.stage + 1;
+        hot = turn % cards.length;
+        turn++;
+        draw();
+      }, 1900);
+    }
+  }
+
+  /* ---------------- Creators: how long is your script? ---------------- */
+  const scriptTimer = $("#timer");
+  if (scriptTimer) {
+    const text = $("#timerText"), wave = $("#wave"), ruler = $("#ruler"), verdict = $("#verdict");
+    const WPS = 2.5; // ~150 words a minute, the same pace the app uses
+    let target = 30;
+    const render = () => {
+      const words = text.value.trim().split(/\s+/).filter(Boolean);
+      const secs = words.length / WPS;
+      const span = Math.max(90, Math.ceil(secs / 15) * 15); // timeline length in seconds
+      wave.textContent = "";
+      const bw = 100 / (span * WPS); // % width of one word
+      words.forEach((w, i) => {
+        const b = document.createElement("b");
+        const seed = (w.length * 37 + i * 17) % 11;
+        b.style.left = i * bw + "%";
+        b.style.width = Math.max(bw * 0.72, 0.25) + "%";
+        b.style.height = 16 + Math.min(w.length, 9) * 6 + seed * 3 + "%";
+        b.className = (i + 1) / WPS <= target ? "in" : "over";
+        wave.appendChild(b);
+      });
+      ruler.textContent = "";
+      const marks = [15, 30, 60, 90].filter((m) => m <= span);
+      marks.forEach((m) => {
+        const s = document.createElement("span");
+        s.style.left = (m / span) * 100 + "%";
+        s.textContent = m + "s";
+        if (m === target) s.className = "on";
+        ruler.appendChild(s);
+      });
+      const shown = Math.round(secs);
+      if (words.length === 0) {
+        verdict.className = "verdict";
+        verdict.innerHTML = "<b>Start typing…</b><small>0 words</small>";
+      } else if (secs <= target) {
+        verdict.className = "verdict ok";
+        verdict.innerHTML = `<b>Fits a ${target}s video</b> — ${Math.max(target - shown, 0)}s to spare<small>${words.length} words · about ${shown}s spoken</small>`;
+      } else {
+        const over = Math.ceil(secs - target);
+        verdict.className = "verdict long";
+        verdict.innerHTML = `<b>${over}s too long</b> for ${target}s — trim about ${Math.ceil(over * WPS)} words<small>${words.length} words · about ${shown}s spoken</small>`;
+      }
+    };
+    text.addEventListener("input", render);
+    $$(".tt", scriptTimer).forEach((btn) =>
+      btn.addEventListener("click", () => {
+        target = Number(btn.dataset.sec);
+        $$(".tt", scriptTimer).forEach((b) => b.classList.toggle("on", b === btn));
+        render();
+      })
+    );
+    render();
   }
 
   /* ---------------- Vault scramble ---------------- */
