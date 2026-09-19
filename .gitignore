@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+# installers live in GitHub Releases, not in the repo
+downloads/

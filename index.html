@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0a09">
+  <title>WhiteInk — where stories take shape</title>
+  <meta name="description" content="WhiteInk is the private, beautiful writing studio for novels, screenplays, songs and films. Free beta for Windows and Android.">
+  <meta property="og:title" content="WhiteInk — where stories take shape">
+  <meta property="og:description" content="Novels, screenplays, songs and films in one private, beautiful studio. Download the free beta for Windows and Android.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3 5 14l3 7h8l3-7L12 3Z"/><circle cx="12" cy="13" r="1.6"/><path d="M12 14.6V21"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></symbol>
+    <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5 5h14l2 8v6H3v-6l2-8Z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v13M6 11l6 6 6-6M4 21h16"/></symbol>
+    <symbol id="i-win" viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></symbol>
+    <symbol id="i-android" viewBox="0 0 24 24"><path d="M6 9h12v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 17V9Z"/><path d="M8 5.5 6.8 3.8M16 5.5l1.2-1.7M6 9a6 6 0 0 1 12 0M3.5 10v5M20.5 10v5M9.5 18.5V22M14.5 18.5V22"/><circle cx="9.5" cy="7" r=".6"/><circle cx="14.5" cy="7" r=".6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-cloudoff" viewBox="0 0 24 24"><path d="M3 3l18 18M17.5 17.5H7a4 4 0 0 1-.6-7.96M9.5 5.6A6 6 0 0 1 18 10a4.5 4.5 0 0 1 1.9 7.4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-pill">
+    <a class="brand" href="#top"><img src="assets/mark.svg" alt="" width="28" height="28"><span>WhiteInk</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#showcase">Showcase</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-glow btn-sm" href="#download">Get the beta</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="grid-floor" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <div class="badge reveal"><span class="pulse"></span> Public beta · <span data-version>v0.1.0</span> · Free</div>
+      <h1 class="hero-title reveal">
+        Your next
+        <span class="rot" aria-live="polite">
+          <span class="rot-word is-on">novel</span>
+          <span class="rot-word">screenplay</span>
+          <span class="rot-word">song</span>
+          <span class="rot-word">short film</span>
+          <span class="rot-word">series</span>
+        </span><br>
+        starts <em>here.</em>
+      </h1>
+      <p class="hero-sub reveal">WhiteInk is the private, beautiful writing studio that holds every idea, scene and lyric — on your laptop and in your pocket. No account. No cloud required. Just you and the work.</p>
+      <div class="cta-row reveal">
+        <a class="btn btn-glow" href="#download" data-primary-cta><svg class="ic"><use href="#i-down"/></svg><span>Download the beta</span></a>
+        <a class="btn btn-ghost" href="#showcase"><span>See it in action</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="hero-note reveal"><svg class="ic sm"><use href="#i-win"/></svg> Windows &nbsp;·&nbsp; <svg class="ic sm"><use href="#i-android"/></svg> Android &nbsp;·&nbsp; Works offline</p>
+    </div>
+
+    <!-- Device stage -->
+    <div class="wrap stage-wrap">
+      <div class="stage" id="stage">
+        <div class="glow-orb" aria-hidden="true"></div>
+
+        <!-- Laptop / desktop window -->
+        <div class="device window" data-depth="1">
+          <div class="win-bar"><i></i><i></i><i></i><span class="win-title"><img src="assets/mark.svg" alt="" width="12" height="12"> WhiteInk</span></div>
+          <div class="win-body">
+            <aside class="side">
+              <div class="side-brand"><img src="assets/mark.svg" alt="" width="22" height="22"> WhiteInk</div>
+              <div class="side-btn">+ New project</div>
+              <div class="side-item on"><svg class="ic sm"><use href="#i-home"/></svg> Desk</div>
+              <div class="side-item"><svg class="ic sm"><use href="#i-inbox"/></svg> Inbox <b>3</b></div>
+              <div class="side-item"><svg class="ic sm"><use href="#i-search"/></svg> Search</div>
+              <div class="side-item"><svg class="ic sm"><use href="#i-lock"/></svg> Vault</div>
+              <div class="side-item"><svg class="ic sm"><use href="#i-gear"/></svg> Settings</div>
+              <div class="side-label">Writing</div>
+              <div class="side-proj"><i style="background:var(--ochre)"></i> The Last Lighthouse</div>
+              <div class="side-proj"><i style="background:var(--sage)"></i> Salt &amp; Static</div>
+              <div class="side-label">Film</div>
+              <div class="side-proj"><i style="background:var(--coral)"></i> Monsoon Nights</div>
+            </aside>
+            <div class="main-mock">
+              <div class="mm-date">SATURDAY 19 SEPTEMBER</div>
+              <div class="mm-hello">Good evening.</div>
+              <div class="mm-card">
+                <div class="mm-card-h"><span class="dotplus">+</span> Capture a thought</div>
+                <div class="mm-input"><span id="typed"></span><span class="caret"></span></div>
+                <div class="mm-chips"><span class="on">Idea</span><span>Dialogue</span><span>Plot twist</span><span>Dream</span><span>Note</span></div>
+                <div class="mm-foot"><span>Ctrl + Enter to save</span><span class="mm-save">Save to Inbox →</span></div>
+              </div>
+              <div class="mm-grid">
+                <div><i style="background:var(--ochre)"></i><b>The Last Lighthouse</b><small>Novel · 42,180 words</small><div class="bar"><u style="width:62%"></u></div></div>
+                <div><i style="background:var(--coral)"></i><b>Monsoon Nights</b><small>Short film · Pre-production</small><div class="bar"><u style="width:38%"></u></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="device phone" data-depth="2">
+          <div class="notch"></div>
+          <div class="ph-body">
+            <div class="ph-top"><img src="assets/mark.svg" alt="" width="18" height="18"> <b>WhiteInk</b></div>
+            <div class="ph-hello">Good evening.</div>
+            <div class="ph-card">
+              <b>Capture a thought</b>
+              <div class="ph-input">A song about the last train home…</div>
+              <div class="mm-chips"><span class="on">Idea</span><span>Dream</span></div>
+              <div class="ph-save">Save to Inbox</div>
+            </div>
+            <div class="ph-proj"><i style="background:var(--sage)"></i> Salt &amp; Static <small>Song</small></div>
+            <div class="ph-proj"><i style="background:var(--ochre)"></i> The Last Lighthouse <small>Novel</small></div>
+            <div class="ph-nav"><svg class="ic"><use href="#i-home"/></svg><svg class="ic"><use href="#i-inbox"/></svg><svg class="ic"><use href="#i-search"/></svg><svg class="ic"><use href="#i-lock"/></svg></div>
+          </div>
+        </div>
+
+        <!-- Floating chips -->
+        <div class="float f1" data-depth="3"><svg class="ic sm"><use href="#i-check"/></svg> Autosaved</div>
+        <div class="float f2" data-depth="2"><b>INT. LIGHTHOUSE — NIGHT</b><small>Scene 12 · 2 pages</small></div>
+        <div class="float f3" data-depth="3"><svg class="ic sm"><use href="#i-lock"/></svg> Vault locked</div>
+        <div class="float f4" data-depth="2"><b>+1,240</b><small>words today</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Idea</span><span>Dialogue</span><span>Plot twist</span><span>Dream</span><span>Scene idea</span><span>Film idea</span><span>Novel idea</span><span>Character thought</span><span>Research note</span><span>Lyric</span>
+      <span>Idea</span><span>Dialogue</span><span>Plot twist</span><span>Dream</span><span>Scene idea</span><span>Film idea</span><span>Novel idea</span><span>Character thought</span><span>Research note</span><span>Lyric</span>
+    </div>
+  </div>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="journey" id="journey">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="eyebrow">From spark to finished</p>
+        <h2>Every idea finds <em>its way.</em></h2>
+        <p class="lede">Scroll and follow one thought from a stray line in the dark to a polished, shareable piece — without ever leaving WhiteInk.</p>
+      </div>
+
+      <ol class="jsteps" id="jsteps">
+        <li class="jstep">
+          <span class="jnode"><svg class="ic"><use href="#i-pen"/></svg></span>
+          <span class="jnum">01</span>
+          <h3>Capture it</h3>
+          <p>A stray line, a dream, a plot twist — saved in a single keystroke.</p>
+          <span class="jtag">“A keeper who never left”</span>
+        </li>
+        <li class="jstep">
+          <span class="jnode"><svg class="ic"><use href="#i-inbox"/></svg></span>
+          <span class="jnum">02</span>
+          <h3>Shape it</h3>
+          <p>Promote it into a chapter, a scene or a song, and link it to your people and places.</p>
+          <span class="jtag">→ Chapter 2 · Salt Wind</span>
+        </li>
+        <li class="jstep">
+          <span class="jnode"><svg class="ic"><use href="#i-book"/></svg></span>
+          <span class="jnum">03</span>
+          <h3>Write it</h3>
+          <p>Focused editors, proper script format, autosave and a streak that keeps you coming back.</p>
+          <span class="jtag">2,418 words today</span>
+        </li>
+        <li class="jstep">
+          <span class="jnode"><svg class="ic"><use href="#i-film"/></svg></span>
+          <span class="jnum">04</span>
+          <h3>Plan it</h3>
+          <p>Build your story bible, schedule shoot days and tick off every stage of production.</p>
+          <span class="jtag">Day 2 · Sc. 12 · 07:00</span>
+        </li>
+        <li class="jstep">
+          <span class="jnode"><svg class="ic"><use href="#i-down"/></svg></span>
+          <span class="jnum">05</span>
+          <h3>Share it</h3>
+          <p>Flip through it like a real book, then export a polished PDF in one click.</p>
+          <span class="jtag">PDF · 214 pages</span>
+        </li>
+        <span class="jline" aria-hidden="true"><u></u></span>
+        <img class="jdrop" src="assets/mark.svg" alt="" width="40" height="40" aria-hidden="true">
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto">
+    <div class="wrap">
+      <p class="manifesto-text" id="manifesto">Your ideas deserve a quiet place — not a noisy cloud. WhiteInk keeps every draft close, every scene in order, and every secret locked. Open it. Write. Everything else disappears.</p>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE ============ -->
+  <section id="showcase" class="showcase">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="eyebrow">One studio</p>
+        <h2>Every format. <em>Made properly.</em></h2>
+        <p class="lede">Not a text box with a title. Each kind of project gets the tools its craft actually needs.</p>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="Project formats">
+        <button class="tab is-on" role="tab" data-tab="novel"><svg class="ic"><use href="#i-book"/></svg> Novel</button>
+        <button class="tab" role="tab" data-tab="script"><svg class="ic"><use href="#i-film"/></svg> Screenplay</button>
+        <button class="tab" role="tab" data-tab="song"><svg class="ic"><use href="#i-music"/></svg> Song</button>
+        <button class="tab" role="tab" data-tab="film"><svg class="ic"><use href="#i-users"/></svg> Production</button>
+        <span class="tab-progress"><u></u></span>
+      </div>
+
+      <div class="showcase-stage reveal">
+        <div class="showcase-copy">
+          <div class="copy" data-copy="novel">
+            <h3>Chapters, scenes and a reader that gets out of your way.</h3>
+            <p>A manuscript tree keeps every chapter and scene in order. Switch to the Novella editor for long, focused sessions — then read it back full-screen like a real book.</p>
+            <ul class="ticks"><li>Chapter &amp; scene tree with drag-to-order</li><li>Distraction-free full-screen reader</li><li>Live word counts &amp; daily writing streak</li></ul>
+          </div>
+          <div class="copy" data-copy="script" hidden>
+            <h3>Industry-standard script format, automatically.</h3>
+            <p>Scene headings, action, character and dialogue snap into proper screenplay layout as you type. Keep saved versions of every draft and jump between scenes from the list.</p>
+            <ul class="ticks"><li>Proper screenplay formatting &amp; pagination</li><li>Scene list &amp; saved draft versions</li><li>Export a clean screenplay PDF</li></ul>
+          </div>
+          <div class="copy" data-copy="song" hidden>
+            <h3>A home for lyrics, verses and hooks.</h3>
+            <p>Sketch a chorus at 2 a.m., come back to it next month. Songs live beside your other projects with their own dedicated lyric space.</p>
+            <ul class="ticks"><li>Lyric writing space per song</li><li>Sits alongside novels &amp; films</li><li>Capture stray lines straight into your Inbox</li></ul>
+          </div>
+          <div class="copy" data-copy="film" hidden>
+            <h3>From script to shoot day — in the same app.</h3>
+            <p>Short films, features and series get production details, a stage-by-stage checklist and a shooting schedule, with call-sheet-ready PDF export.</p>
+            <ul class="ticks"><li>Shoot-day schedule &amp; PDF export</li><li>Production checklist by stage</li><li>Characters, locations &amp; timeline linked to scenes</li></ul>
+          </div>
+        </div>
+
+        <div class="showcase-window">
+          <div class="win-bar"><i></i><i></i><i></i><span class="win-title" id="winTitle">The Last Lighthouse — Novel</span></div>
+
+          <!-- Novel -->
+          <div class="pane is-on" data-pane="novel">
+            <div class="pane-split">
+              <div class="tree">
+                <div class="tree-h">Manuscript</div>
+                <div class="tree-i">▾ Part One</div>
+                <div class="tree-i l2">Chapter 1 · The Keeper</div>
+                <div class="tree-i l2 on">Chapter 2 · Salt Wind</div>
+                <div class="tree-i l3">Scene · The Boat</div>
+                <div class="tree-i l3">Scene · The Letter</div>
+                <div class="tree-i l2">Chapter 3 · Low Tide</div>
+                <div class="tree-i">▸ Part Two</div>
+              </div>
+              <div class="prose">
+                <div class="prose-h">Chapter 2</div>
+                <p>The wind came in off the water the way it always did, smelling of iron and salt, and Mara pressed her palm against the cold glass of the lamp room.</p>
+                <p>Below her, the sea kept its own counsel. She had thirty-one steps to decide whether to tell him what she had found in the<span class="caret"></span></p>
+                <div class="prose-f"><span>2,418 words</span><span class="ok">● Saved</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Screenplay -->
+          <div class="pane" data-pane="script">
+            <div class="pane-split">
+              <div class="tree">
+                <div class="tree-h">Scenes</div>
+                <div class="tree-i">10 · EXT. HARBOUR</div>
+                <div class="tree-i">11 · INT. BOATHOUSE</div>
+                <div class="tree-i on">12 · INT. LIGHTHOUSE</div>
+                <div class="tree-i">13 · EXT. CLIFFS</div>
+                <div class="tree-h" style="margin-top:14px">Versions</div>
+                <div class="tree-i">Draft 3 · today</div>
+                <div class="tree-i">Draft 2 · Sep 12</div>
+              </div>
+              <div class="script">
+                <p class="sc-head">INT. LIGHTHOUSE — NIGHT</p>
+                <p class="sc-act">Rain hammers the lantern glass. MARA (30s, weathered) climbs the last step, out of breath.</p>
+                <p class="sc-char">MARA</p>
+                <p class="sc-dlg">You said it was off for good.</p>
+                <p class="sc-char">TOM</p>
+                <p class="sc-par">(not turning)</p>
+                <p class="sc-dlg">It was. Until tonight.<span class="caret"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song -->
+          <div class="pane" data-pane="song">
+            <div class="song">
+              <div class="song-h"><b>Salt &amp; Static</b><span>Key of D · 92 bpm</span></div>
+              <p class="song-tag">Verse 1</p>
+              <p>Radio hums the last train home,<br>city light on a rain-slick road,<br>I keep your name inside my phone<br>like a song I never showed</p>
+              <p class="song-tag">Chorus</p>
+              <p class="hl">Oh, we were salt and static,<br>we were fire in the fog —<span class="caret"></span></p>
+            </div>
+          </div>
+
+          <!-- Production -->
+          <div class="pane" data-pane="film">
+            <div class="sched">
+              <div class="sched-h"><b>Shooting schedule</b><span class="pill">Export PDF</span></div>
+              <div class="sched-row head"><span>Day</span><span>Scene</span><span>Location</span><span>Call</span></div>
+              <div class="sched-row"><span>Day 1</span><span>Sc. 4–6</span><span>Harbour</span><span>05:30</span></div>
+              <div class="sched-row on"><span>Day 2</span><span>Sc. 12</span><span>Lighthouse</span><span>07:00</span></div>
+              <div class="sched-row"><span>Day 3</span><span>Sc. 13–15</span><span>Cliffs</span><span>06:00</span></div>
+              <div class="sched-row"><span>Day 4</span><span>Sc. 18</span><span>Boathouse</span><span>08:30</span></div>
+              <div class="chk"><i></i><i></i><i></i><i class="off"></i><i class="off"></i> <small>Pre-production checklist · 3 of 5</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENTO FEATURES ============ -->
+  <section id="features" class="features">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Everything inside</p>
+        <h2>Small details. <em>Big difference.</em></h2>
+      </div>
+
+      <div class="bento">
+        <article class="bcard span2 spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-pen"/></svg><h3>Catch it before it's gone</h3></div>
+          <p>Ten kinds of thought, one keystroke. Everything waits in your Inbox until you promote it into a scene, a character or a chapter.</p>
+          <div class="chip-cloud" aria-hidden="true"><span>Idea</span><span>Plot twist</span><span>Dialogue</span><span>Dream</span><span>Research note</span><span>Scene idea</span><span>Character thought</span><span>Film idea</span></div>
+        </article>
+
+        <article class="bcard tall spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-book"/></svg><h3>Flip through it like a real book</h3></div>
+          <p>Preview your manuscript with a page-turn reader, then export to PDF.</p>
+          <div class="book" aria-hidden="true">
+            <div class="pg left"><u></u><u></u><u class="s"></u><u></u><u></u></div>
+            <div class="pg right"><u></u><u class="s"></u><u></u><u></u><u></u></div>
+            <div class="pg flip"><u></u><u></u><u class="s"></u></div>
+          </div>
+        </article>
+
+        <article class="bcard spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-search"/></svg><h3>Find anything, instantly</h3></div>
+          <div class="search-demo" aria-hidden="true">
+            <div class="sd-input"><svg class="ic sm"><use href="#i-search"/></svg><span id="searchTyped"></span><span class="caret"></span></div>
+            <div class="sd-res"><b>Ch. 2 · Salt Wind</b><small>…the lamp room of the <mark>lighthouse</mark>…</small></div>
+            <div class="sd-res"><b>Sc. 12 · INT. LIGHTHOUSE</b><small>Rain hammers the lantern…</small></div>
+          </div>
+        </article>
+
+        <article class="bcard spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-users"/></svg><h3>A living story bible</h3></div>
+          <p>Characters, locations, timeline and research — linked to your scenes.</p>
+          <svg class="graph" viewBox="0 0 220 110" aria-hidden="true">
+            <g class="edges"><path d="M40 55 L110 25"/><path d="M110 25 L180 60"/><path d="M40 55 L110 88"/><path d="M110 88 L180 60"/><path d="M110 25 L110 88"/></g>
+            <g class="nodes"><circle cx="40" cy="55" r="11"/><circle cx="110" cy="25" r="11"/><circle cx="180" cy="60" r="11"/><circle cx="110" cy="88" r="11"/></g>
+            <g class="lab"><text x="40" y="58">M</text><text x="110" y="28">T</text><text x="180" y="63">L</text><text x="110" y="91">H</text></g>
+          </svg>
+        </article>
+
+        <article class="bcard span2 spot reveal" id="privacy">
+          <div class="bcard-t"><svg class="ic"><use href="#i-lock"/></svg><h3>A vault that's actually locked</h3></div>
+          <p>Store passwords and sensitive notes behind a master passphrase. Entries are encrypted on your device with AES-GCM — your passphrase is never saved.</p>
+          <div class="vault" aria-hidden="true">
+            <span class="v-k">secret</span><span class="v-eq">=</span><span class="v-val" id="vaultText">sunlit-harbor-42</span>
+            <span class="v-badge">AES-GCM · PBKDF2 210k</span>
+          </div>
+        </article>
+
+        <article class="bcard spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-moon"/></svg><h3>Light &amp; dark, your call</h3></div>
+          <div class="theme-demo" id="themeDemo" aria-hidden="true">
+            <div class="td-card"><b>Good evening.</b><small>A quiet place for the work in progress.</small><span></span></div>
+          </div>
+          <button class="td-toggle" id="themeToggle" type="button"><svg class="ic sm"><use href="#i-sun"/></svg> Try it</button>
+        </article>
+
+        <article class="bcard span3 spot reveal">
+          <div class="bcard-t"><svg class="ic"><use href="#i-cloudoff"/></svg><h3>Offline first. Sync when you want.</h3></div>
+          <p>Your work lives on your device, so it opens instantly — even on a plane. Sign in with Google only if you want a private copy on another device.</p>
+          <svg class="sync" viewBox="0 0 320 90" aria-hidden="true">
+            <rect x="8" y="22" width="70" height="46" rx="6"/><rect x="242" y="14" width="34" height="62" rx="7"/>
+            <path class="flow" d="M80 45 H240"/>
+            <circle class="pkt" r="4" cx="80" cy="45"/>
+            <text x="43" y="49" class="t">PC</text><text x="259" y="49" class="t">📱</text>
+          </svg>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section id="download" class="download">
+    <div class="wrap">
+      <div class="dl-hero reveal">
+        <div class="dl-glow" aria-hidden="true"></div>
+        <img class="dl-logo" src="assets/mark.svg" alt="" width="116" height="116">
+        <p class="eyebrow">Download · <span data-channel>Beta</span> · <span data-version>v0.1.0</span></p>
+        <h2>Start writing tonight.</h2>
+        <p class="lede">Free while in beta. Released <span data-released>September 2026</span>. Tell us what you'd change — it shapes the final app.</p>
+
+        <div class="dl-buttons">
+          <a class="dl-btn" data-link="windows" id="card-windows" href="#download" aria-disabled="true">
+            <svg class="ic lg"><use href="#i-win"/></svg>
+            <span><b>Download for Windows</b><small><span data-file="windows"></span> · <span data-size="windows"></span></small></span>
+            <em data-recommended="windows" hidden>For you</em>
+          </a>
+          <a class="dl-btn" data-link="android" id="card-android" href="#download" aria-disabled="true">
+            <svg class="ic lg"><use href="#i-android"/></svg>
+            <span><b>Download for Android</b><small><span data-file="android"></span> · <span data-size="android"></span></small></span>
+            <em data-recommended="android" hidden>For you</em>
+          </a>
+        </div>
+
+        <div class="install">
+          <div><h4>Windows 10 / 11</h4><ol><li>Run the installer.</li><li>If SmartScreen warns you, choose <b>More info → Run anyway</b> — the beta isn't code-signed yet.</li><li>Open WhiteInk from the Start menu.</li></ol></div>
+          <div><h4>Android 7.0+</h4><ol><li>Open the downloaded APK.</li><li>Allow "Install unknown apps" for your browser when asked.</li><li>Tap <b>Install</b>, then open WhiteInk.</li></ol></div>
+        </div>
+        <p class="fine">Only download WhiteInk from this page. Beta builds aren't in the Play Store or Microsoft Store yet, so your device may show an "unknown publisher" notice — that's expected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="faq">
+    <div class="wrap narrow">
+      <div class="section-head center reveal"><p class="eyebrow">Questions</p><h2>Good to <em>know.</em></h2></div>
+      <details class="reveal"><summary>Is WhiteInk free?</summary><p>Yes — the beta is completely free. If pricing ever arrives, you'll hear about it well before the beta ends.</p></details>
+      <details class="reveal"><summary>Where is my writing stored?</summary><p>On your own device. Nothing is uploaded unless you turn on sync, which saves a private snapshot of your work to your own cloud storage, tied to your Google sign-in.</p></details>
+      <details class="reveal"><summary>Do I need an account?</summary><p>No. WhiteInk works fully offline with no account. Signing in with Google is only for syncing between devices.</p></details>
+      <details class="reveal"><summary>Why does my device show a warning?</summary><p>The beta isn't signed with a paid publisher certificate yet, so Windows SmartScreen and Android show a generic warning for apps installed outside a store. The install steps above walk you through it.</p></details>
+      <details class="reveal"><summary>How do I update?</summary><p>Download the newest version from this page and install it over the old one. Your projects stay where they are.</p></details>
+      <details class="reveal"><summary>How do I report a bug or suggest a feature?</summary><p><a href="#" data-feedback>Open an issue</a> on our GitHub page with what happened and which device you use. Every report shapes the release.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <a class="brand" href="#top"><img src="assets/mark.svg" alt="" width="26" height="26"><span>WhiteInk</span></a>
+    <span>© <span id="year"></span> WhiteInk · Where stories take shape.</span>
+    <a class="to-top" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
