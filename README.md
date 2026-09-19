@@ -4,7 +4,7 @@
 screenplays, songs and films — for Windows and Android.
 
 - **Website:** https://flawe-whiteink.github.io/whiteink/
-- **Download the beta:** https://github.com/flawe-whiteink/whiteink/releases/latest
+- **Download the beta:** https://github.com/flawe-whiteink/whiteink/releases
 - **Report a bug / suggest a feature:** https://github.com/flawe-whiteink/whiteink/issues/new
 
 This repository holds the WhiteInk website (a static site: `index.html`, `styles.css`, `script.js`)
