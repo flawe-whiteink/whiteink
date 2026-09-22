@@ -1,18 +1,18 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "channel": "Beta",
-  "released": "2026-09-20",
+  "released": "2026-09-22",
   "windows": {
     "label": "Windows installer",
-    "file": "WhiteInk_0.1.2_x64-setup.exe",
+    "file": "WhiteInk_0.1.3_x64-setup.exe",
     "size": "4.1 MB",
-    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.2/WhiteInk_0.1.2_x64-setup.exe"
+    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.3/WhiteInk_0.1.3_x64-setup.exe"
   },
   "android": {
     "label": "Android APK",
-    "file": "WhiteInk-0.1.2-arm64.apk",
-    "size": "17.8 MB",
-    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.2/WhiteInk-0.1.2-arm64.apk"
+    "file": "WhiteInk-0.1.3-arm64.apk",
+    "size": "13.0 MB",
+    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.3/WhiteInk-0.1.3-arm64.apk"
   },
   "feedbackUrl": "https://github.com/flawe-whiteink/whiteink/issues/new"
 }
