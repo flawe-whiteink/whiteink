@@ -21,14 +21,20 @@
       setAll("[data-released]", new Date(d.released).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" }));
       ["windows", "android"].forEach((key) => {
         const item = d[key];
-        setAll(`[data-file="${key}"]`, item.file);
-        setAll(`[data-size="${key}"]`, item.size || "Beta build");
         const link = $(`[data-link="${key}"]`);
+        if (item.title) $("b", link).textContent = item.title;
+        // Store listings carry a plain label; direct downloads show file · size.
+        if (item.store) $("small", link).textContent = item.label;
+        else {
+          setAll(`[data-file="${key}"]`, item.file);
+          setAll(`[data-size="${key}"]`, item.size || "Beta build");
+        }
         if (item.url) {
           link.href = item.url;
-          link.setAttribute("download", "");
+          if (item.store) { link.target = "_blank"; link.rel = "noopener"; }
+          else link.setAttribute("download", "");
           link.removeAttribute("aria-disabled");
-        } else {
+        } else if (!item.store) {
           const small = $("small", link);
           if (small) small.textContent = "Link coming soon";
         }
@@ -39,7 +45,7 @@
         // Keep the hero button as a jump to the Download section (where the
         // install steps are) — just label it for the visitor's platform.
         const cta = $("[data-primary-cta]");
-        $("span", cta).textContent = platform === "android" ? "Download for Android" : "Download for Windows";
+        $("span", cta).textContent = platform === "android" ? "Get it for Android" : "Get it for Windows";
       }
     })
     .catch(() => {});

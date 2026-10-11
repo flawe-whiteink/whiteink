@@ -3,16 +3,16 @@
   "channel": "Beta",
   "released": "2026-10-01",
   "windows": {
-    "label": "Windows installer",
-    "file": "WhiteInk_0.1.4_x64-setup.exe",
-    "size": "4.1 MB",
-    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.4/WhiteInk_0.1.4_x64-setup.exe"
+    "title": "Get it from Microsoft Store",
+    "label": "Windows 10 / 11 · Free",
+    "store": true,
+    "url": "https://apps.microsoft.com/detail/9pnl076tq82z?hl=en-US&gl=IN"
   },
   "android": {
-    "label": "Android APK",
-    "file": "WhiteInk-0.1.4-arm64.apk",
-    "size": "13.0 MB",
-    "url": "https://github.com/flawe-whiteink/whiteink/releases/download/v0.1.4/WhiteInk-0.1.4-arm64.apk"
+    "title": "Google Play",
+    "label": "Coming soon",
+    "store": true,
+    "url": ""
   },
   "feedbackUrl": "https://github.com/flawe-whiteink/whiteink/issues/new"
 }
